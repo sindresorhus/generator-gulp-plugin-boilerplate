@@ -2,6 +2,8 @@
 
 > Scaffold out a [gulp plugin boilerplate](https://github.com/sindresorhus/gulp-plugin-boilerplate)
 
+![](screenshot.png)
+
 
 ## Getting started
 
