@@ -16,7 +16,7 @@
     "test": "mocha"
   },
   "files": [
-    "app/index.js"
+    "app"
   ],
   "keywords": [
     "yeoman-generator",
