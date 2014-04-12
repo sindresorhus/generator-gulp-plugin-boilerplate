@@ -30,7 +30,7 @@ describe('generator', function () {
 		});
 
 		this.generator.run({}, function () {
-			helpers.assertFiles(expected);
+			helpers.assertFile(expected);
 			cb();
 		});
 	});
