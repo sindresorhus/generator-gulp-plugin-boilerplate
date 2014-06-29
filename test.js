@@ -26,7 +26,7 @@ describe('generator', function () {
 
 		helpers.mockPrompt(this.generator, {
 			pluginName: 'test',
-			name: 'test'
+			githubUsername: 'test'
 		});
 
 		this.generator.run({}, function () {
