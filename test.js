@@ -21,7 +21,12 @@ describe('generator', function () {
 			'index.js',
 			'test.js',
 			'package.json',
-			'readme.md'
+			'readme.md',
+			'.editorconfig',
+			'.gitattributes',
+			'.gitignore',
+			'.jshintrc',
+			'.travis.yml'
 		];
 
 		helpers.mockPrompt(this.generator, {
