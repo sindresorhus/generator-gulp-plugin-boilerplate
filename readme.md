@@ -7,7 +7,7 @@
 
 ## Install
 
-```bash
+```sh
 $ npm install --global generator-gulp-plugin-boilerplate
 ```
 
@@ -16,11 +16,11 @@ $ npm install --global generator-gulp-plugin-boilerplate
 
 Run it with [yo](https://github.com/yeoman/yo):
 
-```bash
+```sh
 $ yo gulp-plugin-boilerplate
 ```
 
 
 ## License
 
-[MIT](http://opensource.org/licenses/MIT) © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](http://sindresorhus.com)
