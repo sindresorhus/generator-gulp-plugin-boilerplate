@@ -1,4 +1,6 @@
 'use strict';
+var path = require('path');
+var fs = require('fs');
 
 var Generator = module.exports = function () {
 	var cb = this.async();
@@ -23,6 +25,8 @@ var Generator = module.exports = function () {
 		this.name = this.user.git.name();
 		this.email = this.user.git.email();
 
+		fs.writeFileSync(path.join(this.sourceRoot(), '.gitignore'), 'node_modules\n');
+
 		this.template('index.js');
 		// needed so npm doesn't try to use it and fail
 		this.template('_package.json', 'package.json');
@@ -37,5 +41,3 @@ var Generator = module.exports = function () {
 		cb();
 	}.bind(this));
 };
-
-Generator.name = 'Gulp plugin boilerplate';
