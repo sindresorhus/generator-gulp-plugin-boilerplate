@@ -1,8 +1,9 @@
 'use strict';
 var path = require('path');
 var fs = require('fs');
+var superb = require('superb');
 
-var Generator = module.exports = function () {
+module.exports = function () {
 	var cb = this.async();
 
 	this.prompt([{
@@ -24,6 +25,7 @@ var Generator = module.exports = function () {
 		this.githubUsername = props.githubUsername;
 		this.name = this.user.git.name();
 		this.email = this.user.git.email();
+		this.superb = superb();
 
 		fs.writeFileSync(path.join(this.sourceRoot(), '.gitignore'), 'node_modules\n');
 
