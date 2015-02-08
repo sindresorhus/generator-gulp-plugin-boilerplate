@@ -34,7 +34,7 @@ describe('generator', function () {
 			githubUsername: 'test'
 		});
 
-		this.generator.run({}, function () {
+		this.generator.run(function () {
 			helpers.assertFile(expected);
 			cb();
 		});
