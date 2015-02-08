@@ -8,7 +8,8 @@ describe('generator', function () {
 
 		helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
 			if (err) {
-				return cb(err);
+				cb(err);
+				return;
 			}
 
 			this.generator = helpers.createGenerator('gulp-plugin-boilerplate:app', deps);
