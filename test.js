@@ -19,15 +19,16 @@ describe('generator', function () {
 
 	it('generates expected files', function (cb) {
 		var expected = [
-			'index.js',
-			'test.js',
-			'package.json',
-			'readme.md',
 			'.editorconfig',
 			'.gitattributes',
 			'.gitignore',
 			'.jshintrc',
-			'.travis.yml'
+			'.travis.yml',
+			'index.js',
+			'license',
+			'package.json',
+			'readme.md',
+			'test.js'
 		];
 
 		helpers.mockPrompt(this.generator, {

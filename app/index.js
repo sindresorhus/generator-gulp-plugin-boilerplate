@@ -29,17 +29,19 @@ module.exports = yeoman.generators.Base.extend({
 			this.email = this.user.git.email();
 			this.superb = superb();
 
+			// workaround npm issue
 			fs.writeFileSync(path.join(this.sourceRoot(), '.gitignore'), 'node_modules\n');
 
-			this.template('index.js');
-			// needed so npm doesn't try to use it and fail
-			this.template('_package.json', 'package.json');
-			this.template('_readme.md', 'readme.md');
 			this.template('.editorconfig');
 			this.template('.gitattributes');
 			this.template('.gitignore');
 			this.template('.jshintrc');
 			this.template('.travis.yml');
+			this.template('index.js');
+			this.template('license');
+			// needed so npm doesn't try to use it and fail
+			this.template('_package.json', 'package.json');
+			this.template('_readme.md', 'readme.md');
 			this.template('test.js');
 
 			cb();
