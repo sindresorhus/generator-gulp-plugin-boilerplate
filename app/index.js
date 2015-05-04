@@ -3,6 +3,7 @@ var path = require('path');
 var fs = require('fs');
 var superb = require('superb');
 var yeoman = require('yeoman-generator');
+var _s = require('underscore.string');
 
 module.exports = yeoman.generators.Base.extend({
 	init: function () {
@@ -13,7 +14,7 @@ module.exports = yeoman.generators.Base.extend({
 			message: 'What do you want to name your gulp plugin?',
 			default: this.appname.replace(/\s/g, '-'),
 			filter: function (val) {
-				return this._.slugify(val.replace(/^gulp-/, ''));
+				return _s.slugify(val.replace(/^gulp-/, ''));
 			}.bind(this)
 		}, {
 			name: 'githubUsername',
@@ -23,7 +24,7 @@ module.exports = yeoman.generators.Base.extend({
 			}
 		}], function (props) {
 			this.pluginName = props.pluginName;
-			this.camelPluginName = this._.camelize(props.pluginName);
+			this.camelPluginName = _s.camelize(props.pluginName);
 			this.githubUsername = props.githubUsername;
 			this.name = this.user.git.name();
 			this.email = this.user.git.email();

@@ -28,9 +28,11 @@
   ],
   "dependencies": {
     "superb": "^1.0.5",
-    "yeoman-generator": "^0.18.0"
+    "underscore.string": "^3.0.3",
+    "yeoman-generator": "^0.19.2"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "yeoman-assert": "^2.0.0"
   }
 }
