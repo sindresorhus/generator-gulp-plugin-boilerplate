@@ -27,6 +27,8 @@
     "template"
   ],
   "dependencies": {
+    "humanize-url": "^1.0.1",
+    "normalize-url": "^1.2.0",
     "superb": "^1.0.5",
     "underscore.string": "^3.0.3",
     "yeoman-generator": "^0.19.2"

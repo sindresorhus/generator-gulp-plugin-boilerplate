@@ -13,7 +13,7 @@ describe('generator', function () {
 				return;
 			}
 
-			this.generator = helpers.createGenerator('gulp-plugin-boilerplate:app', deps);
+			this.generator = helpers.createGenerator('gulp-plugin-boilerplate:app', deps, null, {skipInstall: true});
 			cb();
 		}.bind(this));
 	});
@@ -34,7 +34,8 @@ describe('generator', function () {
 
 		helpers.mockPrompt(this.generator, {
 			pluginName: 'test',
-			githubUsername: 'test'
+			githubUsername: 'test',
+			website: 'test.com'
 		});
 
 		this.generator.run(function () {

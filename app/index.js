@@ -2,6 +2,8 @@
 var path = require('path');
 var fs = require('fs');
 var superb = require('superb');
+var normalizeUrl = require('normalize-url');
+var humanizeUrl = require('humanize-url');
 var yeoman = require('yeoman-generator');
 var _s = require('underscore.string');
 
@@ -23,12 +25,24 @@ module.exports = yeoman.generators.Base.extend({
 			validate: function (val) {
 				return val.length > 0 ? true : 'You have to provide a username';
 			}
+		}, {
+			name: 'website',
+			message: 'What is the URL of your website?',
+			store: true,
+			validate: function (val) {
+				return val.length > 0 ? true : 'You have to provide a website URL';
+			},
+			filter: function (val) {
+				return normalizeUrl(val);
+			}
 		}], function (props) {
 			this.pluginName = props.pluginName;
 			this.camelPluginName = _s.camelize(props.pluginName);
 			this.githubUsername = props.githubUsername;
 			this.name = this.user.git.name();
 			this.email = this.user.git.email();
+			this.website = props.website;
+			this.humanizedWebsite = humanizeUrl(this.website);
 			this.superb = superb();
 
 			// workaround npm issue
