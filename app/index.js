@@ -36,29 +36,32 @@ module.exports = yeoman.generators.Base.extend({
 				return normalizeUrl(val);
 			}
 		}], function (props) {
-			this.pluginName = props.pluginName;
-			this.camelPluginName = _s.camelize(props.pluginName);
-			this.githubUsername = props.githubUsername;
-			this.name = this.user.git.name();
-			this.email = this.user.git.email();
-			this.website = props.website;
-			this.humanizedWebsite = humanizeUrl(this.website);
-			this.superb = superb();
+			var tpl = {
+				pluginName: props.pluginName,
+				camelPluginName: _s.camelize(props.pluginName),
+				githubUsername: props.githubUsername,
+				name: this.user.git.name(),
+				email: this.user.git.email(),
+				website: props.website,
+				humanizedWebsite: humanizeUrl(props.website),
+				superb: superb()
+			};
+
+			var mv = function (from, to) {
+				this.fs.move(this.destinationPath(from), this.destinationPath(to));
+			}.bind(this);
 
 			// workaround npm issue
 			fs.writeFileSync(path.join(this.sourceRoot(), '.gitignore'), 'node_modules\n');
 
-			this.template('.editorconfig');
-			this.template('.gitattributes');
-			this.template('.gitignore');
-			this.template('.jshintrc');
-			this.template('.travis.yml');
-			this.template('index.js');
-			this.template('license');
-			// needed so npm doesn't try to use it and fail
-			this.template('_package.json', 'package.json');
-			this.template('_readme.md', 'readme.md');
-			this.template('test.js');
+			this.fs.copyTpl([
+				this.templatePath() + '/**',
+				this.templatePath() + '/**/.*',
+				'!**/readme.md'],
+			this.destinationPath(), tpl);
+
+			mv('_package.json', 'package.json');
+			mv('_readme.md', 'readme.md');
 
 			cb();
 		}.bind(this));
