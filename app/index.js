@@ -57,7 +57,7 @@ module.exports = yeoman.generators.Base.extend({
 			this.fs.copyTpl([
 				this.templatePath() + '/**',
 				this.templatePath() + '/**/.*',
-				'!**/readme.md'],
+				'!**/{readme.md,.git}'],
 			this.destinationPath(), tpl);
 
 			mv('_package.json', 'package.json');
