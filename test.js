@@ -1,4 +1,5 @@
 'use strict';
+/* eslint-env mocha */
 var path = require('path');
 var helpers = require('yeoman-generator').test;
 var assert = require('yeoman-assert');
@@ -23,7 +24,6 @@ describe('generator', function () {
 			'.editorconfig',
 			'.gitattributes',
 			'.gitignore',
-			'.jshintrc',
 			'.travis.yml',
 			'index.js',
 			'license',

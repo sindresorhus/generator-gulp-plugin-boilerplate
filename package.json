@@ -13,7 +13,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "xo && mocha"
   },
   "files": [
     "app"
@@ -35,6 +35,12 @@
   },
   "devDependencies": {
     "mocha": "*",
-    "yeoman-assert": "^2.0.0"
+    "yeoman-assert": "^2.0.0",
+    "xo": "*"
+  },
+  "xo": {
+    "ignores": [
+      "app/templates/**"
+    ]
   }
 }
