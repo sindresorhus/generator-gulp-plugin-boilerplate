@@ -8,7 +8,7 @@
 ## Install
 
 ```
-$ npm install --global generator-gulp-plugin-boilerplate
+$ npm install --global yo generator-gulp-plugin-boilerplate
 ```
 
 
