@@ -1,46 +1,51 @@
 {
-  "name": "generator-gulp-plugin-boilerplate",
-  "version": "1.6.0",
-  "description": "Scaffold out a gulp plugin boilerplate",
-  "license": "MIT",
-  "repository": "sindresorhus/generator-gulp-plugin-boilerplate",
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "scripts": {
-    "test": "xo && mocha"
-  },
-  "files": [
-    "app"
-  ],
-  "keywords": [
-    "yeoman-generator",
-    "gulpfriendly",
-    "gulp",
-    "plugin",
-    "boilerplate",
-    "template"
-  ],
-  "dependencies": {
-    "humanize-url": "^1.0.1",
-    "normalize-url": "^1.2.0",
-    "superb": "^1.0.5",
-    "underscore.string": "^3.0.3",
-    "yeoman-generator": "^0.20.1"
-  },
-  "devDependencies": {
-    "mocha": "*",
-    "yeoman-assert": "^2.0.0",
-    "xo": "*"
-  },
-  "xo": {
-    "ignores": [
-      "app/templates/**"
-    ]
-  }
+	"name": "generator-gulp-plugin-boilerplate",
+	"version": "1.6.0",
+	"description": "Scaffold out a gulp plugin boilerplate",
+	"license": "MIT",
+	"repository": "sindresorhus/generator-gulp-plugin-boilerplate",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "sindresorhus.com"
+	},
+	"engines": {
+		"node": ">=4"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"app"
+	],
+	"keywords": [
+		"yeoman-generator",
+		"gulpfriendly",
+		"gulp",
+		"plugin",
+		"boilerplate",
+		"template"
+	],
+	"dependencies": {
+		"humanize-url": "^1.0.1",
+		"normalize-url": "^2.0.1",
+		"superb": "^2.0.0",
+		"underscore.string": "^3.0.3",
+		"yeoman-generator": "^2.0.2"
+	},
+	"devDependencies": {
+		"ava": "*",
+		"pify": "^3.0.0",
+		"xo": "*",
+		"yeoman-assert": "^3.1.0",
+		"yeoman-test": "^1.7.0"
+	},
+	"ava": {
+		"failWithoutAssertions": false
+	},
+	"xo": {
+		"ignores": [
+			"app/templates/**"
+		]
+	}
 }

@@ -1,6 +1,6 @@
 # generator-gulp-plugin-boilerplate [![Build Status](https://travis-ci.org/sindresorhus/generator-gulp-plugin-boilerplate.svg?branch=master)](https://travis-ci.org/sindresorhus/generator-gulp-plugin-boilerplate)
 
-> Scaffold out a [gulp plugin boilerplate](https://github.com/sindresorhus/gulp-plugin-boilerplate)
+> Scaffold out a [Gulp plugin boilerplate](https://github.com/sindresorhus/gulp-plugin-boilerplate)
 
 ![](screenshot.png)
 
@@ -14,7 +14,7 @@ $ npm install --global yo generator-gulp-plugin-boilerplate
 
 ## Usage
 
-Run it with [yo](https://github.com/yeoman/yo):
+Run it with [`yo`](https://github.com/yeoman/yo):
 
 ```
 $ yo gulp-plugin-boilerplate

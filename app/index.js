@@ -1,42 +1,40 @@
 'use strict';
-var path = require('path');
-var fs = require('fs');
-var superb = require('superb');
-var normalizeUrl = require('normalize-url');
-var humanizeUrl = require('humanize-url');
-var yeoman = require('yeoman-generator');
-var _s = require('underscore.string');
+const path = require('path');
+const fs = require('fs');
+const superb = require('superb');
+const normalizeUrl = require('normalize-url');
+const humanizeUrl = require('humanize-url');
+const Generator = require('yeoman-generator');
+const _s = require('underscore.string');
 
-module.exports = yeoman.generators.Base.extend({
-	init: function () {
-		var cb = this.async();
-
-		this.prompt([{
+module.exports = class extends Generator {
+	init() {
+		return this.prompt([{
 			name: 'pluginName',
 			message: 'What do you want to name your gulp plugin?',
 			default: this.appname.replace(/\s/g, '-'),
-			filter: function (val) {
+			filter(val) {
 				return _s.slugify(val.replace(/^gulp-/, ''));
 			}
 		}, {
 			name: 'githubUsername',
 			message: 'What is your GitHub username?',
 			store: true,
-			validate: function (val) {
+			validate(val) {
 				return val.length > 0 ? true : 'You have to provide a username';
 			}
 		}, {
 			name: 'website',
 			message: 'What is the URL of your website?',
 			store: true,
-			validate: function (val) {
+			validate(val) {
 				return val.length > 0 ? true : 'You have to provide a website URL';
 			},
-			filter: function (val) {
+			filter(val) {
 				return normalizeUrl(val);
 			}
-		}], function (props) {
-			var tpl = {
+		}]).then(props => {
+			const tpl = {
 				pluginName: props.pluginName,
 				camelPluginName: _s.camelize(props.pluginName),
 				githubUsername: props.githubUsername,
@@ -47,26 +45,29 @@ module.exports = yeoman.generators.Base.extend({
 				superb: superb()
 			};
 
-			var mv = function (from, to) {
+			const mv = (from, to) => {
 				this.fs.move(this.destinationPath(from), this.destinationPath(to));
-			}.bind(this);
+			};
 
-			// workaround npm issue
+			// Workaround npm issue
 			fs.writeFileSync(path.join(this.sourceRoot(), '.gitignore'), 'node_modules\n');
 
-			this.fs.copyTpl([
-				this.templatePath() + '/**',
-				this.templatePath() + '/**/.*',
-				'!**/{readme.md,.git}'],
-			this.destinationPath(), tpl);
+			this.fs.copyTpl(
+				[
+					`${this.templatePath()}/**`,
+					`${this.templatePath()}/**/.*`,
+					'!**/{readme.md,.git}'
+				],
+				this.destinationPath(),
+				tpl
+			);
 
 			mv('_package.json', 'package.json');
 			mv('_readme.md', 'readme.md');
+		});
+	}
 
-			cb();
-		}.bind(this));
-	},
-	install: function () {
+	install() {
 		this.installDependencies({bower: false});
 	}
-});
+};
