@@ -1,4 +1,4 @@
-# generator-gulp-plugin-boilerplate [![Build Status](https://travis-ci.org/sindresorhus/generator-gulp-plugin-boilerplate.svg?branch=master)](https://travis-ci.org/sindresorhus/generator-gulp-plugin-boilerplate)
+# generator-gulp-plugin-boilerplate
 
 > Scaffold out a [Gulp plugin boilerplate](https://github.com/sindresorhus/gulp-plugin-boilerplate)
 
