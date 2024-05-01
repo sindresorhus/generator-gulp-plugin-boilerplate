@@ -4,23 +4,16 @@
 
 ![](screenshot.png)
 
-
 ## Install
 
+```sh
+npm install --global yo generator-gulp-plugin-boilerplate
 ```
-$ npm install --global yo generator-gulp-plugin-boilerplate
-```
-
 
 ## Usage
 
 Run it with [`yo`](https://github.com/yeoman/yo):
 
+```sh
+yo gulp-plugin-boilerplate
 ```
-$ yo gulp-plugin-boilerplate
-```
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)
